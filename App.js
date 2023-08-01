@@ -2,23 +2,32 @@ import React from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Feather from 'react-native-vector-icons/Feather'
+
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
+import Home from './src/pages/Home'
+import Sobre from './src/pages/Sobre'
+
+const Stack = createNativeStackNavigator()
+
 export default function App(){
   return(
-    <View style={styles.container}>
-      <Text>Adoro torta de limão</Text>
-      <FontAwesome name='home' size={35} color={'blue'}/>
-      <FontAwesome name='user' size={35} color={'#54A300'}/>
-      <Feather name='gift' size={35} color={'purple'}/>
-    
-      <TouchableOpacity>
-        <FontAwesome
-          name='youtube'
-          size={55}
-          color={'#fff'}
-        />
-        <Text>Acessar Canal</Text>
-      </TouchableOpacity>
-    </View>
+
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen options={{
+          title: 'Tela inicio',
+          headerStyle:{
+            backgroundColor: '#121212'
+          },
+          headerTintColor: '#FF0000',
+          headerShown:false
+        }}name="Home" component={Home}/>
+
+        <Stack.Screen name="Sobre" component={Sobre}/>
+      </Stack.Navigator>
+    </NavigationContainer>
 
   )
 
