@@ -6,11 +6,13 @@ import { useNavigation } from '@react-navigation/native'
 export default function Home(){
 
     const navigation = useNavigation();
-
+    function navegaSobre(){
+        navigation.navigate('Sobre', {nome: 'Castello', email: 'gui@gui.com'})
+    }
     return(
         <View style={styles.container}>
             <Text>Home</Text>
-            <Button title="Sobre" onPress={() => navigation.navigate('Sobre')}/>
+            <Button title="Sobre" onPress={() => navegaSobre()}/>
         </View>
     )
 }
