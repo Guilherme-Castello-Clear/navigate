@@ -12,7 +12,7 @@ export default function Home(){
     return(
         <View style={styles.container}>
             <Text>Home</Text>
-            <Button title="Sobre" onPress={() => navegaSobre()}/>
+            <Button title="Sobre" onPress={() => navigation.openDrawer()}/>
         </View>
     )
 }
